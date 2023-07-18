@@ -7,12 +7,12 @@ const Login = () => {
   const {register, handleSubmit, control} = useForm();
 
   const onSubmit = (data) => {
-    axios.post('')
+    axios.post(url+'user/login',data).then();
   }
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="username">Username</label>
       <input type="text" name="username" id="uname" {...register("username")}/>
       <label htmlFor="password">Password</label>

@@ -7,12 +7,12 @@ const Register = () => {
   const {register, handleSubmit, control} = useForm();
 
   const onSubmit = (data) => {
-    axios.post('')
+    axios.post(url+'user/register', data);
   }
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="name">Full Name</label>
       <input type="text" name="name" id="name" {...register("name")}/>
       <label htmlFor="username">Username</label>
