@@ -7,7 +7,8 @@ const Register = () => {
   const {register, handleSubmit, control} = useForm();
 
   const onSubmit = (data) => {
-    axios.post(url+'user/register', data);
+    axios.post(`${url}user/register`, data, {headers: {'Content-Type': 'application/json'}}).catch((error) => {console.log(error)});
+    // console.log(data);
   }
 
   return (
@@ -21,6 +22,11 @@ const Register = () => {
       <input type="email" name="email" id="email" {...register("email")} />
       <label htmlFor="password">Password</label>
       <input type="password" name="password" id="password" {...register("password")}/>
+      <label htmlFor="height">Height</label>
+      <input type="number" name="height" id="height" {...register("height")}/>
+      <label htmlFor="weight">Weight</label>
+      <input type="number" name="weight" id="weight" {...register("weight")}/>
+      <input type="submit" value="Register" />
     </form>
     <DevTool control={control}/>
     </>

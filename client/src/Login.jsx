@@ -7,6 +7,7 @@ const Login = () => {
   const {register, handleSubmit, control} = useForm();
 
   const onSubmit = (data) => {
+    // console.log(data);
     axios.post(url+'user/login',data).then();
   }
 
@@ -17,6 +18,7 @@ const Login = () => {
       <input type="text" name="username" id="uname" {...register("username")}/>
       <label htmlFor="password">Password</label>
       <input type="password" name="password" id="password" {...register("password")}/>
+      <input type="submit" value="Login" />
     </form>
     <DevTool control={control}/>
     </>
